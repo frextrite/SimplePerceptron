@@ -2,7 +2,7 @@ from random import *
 
 
 class Perceptron:
-    input_X_list = [[1, 2]]
+    input_X_list = []
     input_answer_list = []
     test_list = []
     # output = []
@@ -16,13 +16,20 @@ class Perceptron:
         learning_rate = 0.01
         print("Initial Weights: ", self.weights, " and bias ", self.bias)
 
+        self.create_train_list()
+        self.create_test_list()
+        for i in range(len(self.input_X_list)):
+            self.train(self.input_X_list[i], self.input_answer_list[i])
+        for i in range(len(self.test_list)):
+            self.predict(self.test_list[i])
+
     def create_train_list(self):
         for i in range(0, 10000):
             x = randint(-500000, 500000)
             y = randint(-500000, 500000)
             self.input_X_list += [[x, y]]
 
-            if(y > linear_fx(x)):
+            if(y > self.polynomial(x)):
                 output = 1
             else:
                 output = -1
@@ -51,7 +58,7 @@ class Perceptron:
         print("PREDICTING\n")
         v = 0
         for i in range(len(self.weights)):
-            v += (self.weights[i] * input_var[i])  # + bias[i]
+            v += (self.weights[i] * test_var[i])  # + bias[i]
         output = self.activate(v)
 
     def activate(self, n):
@@ -60,8 +67,8 @@ class Perceptron:
         else:
             return -1
 
-    def linear_fn(x):
-        y = 0.1*x + 0.5
+    def polynomial(self, x):
+        y = 2*x + 5
         return y
 
 p = Perceptron()
