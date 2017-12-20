@@ -43,7 +43,7 @@ class Perceptron:
 
     # Generates a list of training data consisting of features and labels
     def create_train_list(self):
-        for i in range(0, 10000):
+        for i in range(0, 1000000):
             x = randint(-1000000, 1000000)
             y = randint(-1000000, 1000000)
             self.input_X_list += [[x, y]]
