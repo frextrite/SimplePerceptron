@@ -43,7 +43,7 @@ class Perceptron:
 
     def train(self, input_var, output):
         v = 0
-        print("TRAINING")
+        # print("TRAINING")
         for i in range(len(self.weights)):
             v += (self.weights[i] * input_var[i])  # + bias[i]
         predicted = self.activate(v)
@@ -54,7 +54,7 @@ class Perceptron:
                 (change_in_weight * input_var[i])
 
     def predict(self, test_var):
-        print("PREDICTING\n")
+        # print("PREDICTING\n")
         v = 0
         for i in range(len(self.weights)):
             v += (self.weights[i] * test_var[i])  # + bias[i]
@@ -71,3 +71,5 @@ class Perceptron:
         return y
 
 p = Perceptron()
+
+# TODO: create a graph for easy interpretation
