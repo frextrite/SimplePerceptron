@@ -5,7 +5,6 @@ class Perceptron:
     input_X_list = []
     input_answer_list = []
     test_list = []
-    # output = []
     weights = []
     bias = []
     learning_rate = 0
@@ -18,10 +17,10 @@ class Perceptron:
 
         self.create_train_list()
         self.create_test_list()
-        for i in range(len(self.input_X_list)):
-            self.train(self.input_X_list[i], self.input_answer_list[i])
-        for i in range(len(self.test_list)):
-            self.predict(self.test_list[i])
+        for input_list, output in zip(self.input_X_list, self.input_answer_list):
+            self.train(input_list, output)
+        for test in self.test_list:
+            self.predict(test)
 
     def create_train_list(self):
         for i in range(0, 10000):
