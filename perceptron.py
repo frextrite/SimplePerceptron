@@ -20,7 +20,7 @@ class Perceptron:
     def __init__(self):
         self.weights = [randint(-1, 1), randint(-1, 1)]
         self.bias = [randint(0, 1), randint(0, 1)]
-        self.learning_rate = 0.01 # Industry standard?
+        self.learning_rate = 0.1 # Industry standard? 0.01 doesn't converge quickly
         print("Initial Weights: ", self.weights, " and bias ", self.bias)
 
         # Generate the train and testing list
