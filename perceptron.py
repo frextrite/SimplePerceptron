@@ -21,7 +21,7 @@ class Perceptron:
         self.weights = [randint(-1, 1), randint(-1, 1)]
         self.bias = [randint(0, 1), randint(0, 1)]
         self.learning_rate = 0.1 # Industry standard? 0.01 doesn't converge quickly
-        print("Initial Weights: ", self.weights, " and bias ", self.bias)
+        # print("Initial Weights: ", self.weights, " and bias ", self.bias)
 
         # Generate the train and testing list
         self.create_train_list()
@@ -36,7 +36,7 @@ class Perceptron:
             self.predict(test)
 
         # Final weights and bias
-        print("Final Weights: ", self.weights, " and bias ", self.bias)
+        # print("Final Weights: ", self.weights, " and bias ", self.bias)
 
         # Plot the graph for easy visualisation
         self.plot_graph()
@@ -65,7 +65,7 @@ class Perceptron:
     # includes feed forward and back propagation
     def train(self, input_var, output):
         v = 0
-        print("TRAINING")
+        # print("TRAINING")
         for i in range(len(self.weights)):
             v += (self.weights[i] * input_var[i])  # + bias[i]
         predicted = self.activate(v)
@@ -110,3 +110,5 @@ class Perceptron:
 
 # create the perceptron
 p = Perceptron()
+
+# TODO: make the bias work
